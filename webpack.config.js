@@ -1,25 +1,40 @@
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const marked = require("marked");
+const renderer = new marked.Renderer();
+
 module.exports = {
     module: {
         rules: [{
-                test: /\.js$/,
+                test: /\.js$/,// 项目中的js文件
                 exclude: /node_modules/,
                 use: {
                     loader: "babel-loader"
                 }
-            },
-            {
-                test: /\.html$/,
+            }, {
+                test: /\.html$/,// 项目中的html文件
                 use: [{
                     loader: "html-loader",
                     options: {
                         minimize: true
                     }
                 }]
-            },
-            {
-                test: /\.css$/,
+            }, {
+                test: /\.md$/, // 项目中的markdown文件
+                use: [
+                    {
+                        loader: "html-loader"
+                    },
+                    {
+                        loader: "markdown-loader",
+                        options: {
+                            pedantic: true,
+                            renderer
+                        }
+                    }
+                ]
+            }, {
+                test: /\.css$/, // 项目中的css文件
                 use: [MiniCssExtractPlugin.loader, "css-loader"]
             }
         ]

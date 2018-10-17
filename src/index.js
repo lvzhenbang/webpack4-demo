@@ -1,5 +1,1 @@
-import style from './css/style.css';
-
-const strTpl = `ES6->ES5`
-
-document.write(strTpl)
+console.log('hello, custom-entry file.')

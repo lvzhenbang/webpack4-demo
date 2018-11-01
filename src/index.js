@@ -1,1 +1,0 @@
-console.log('hello, custom-entry file.')

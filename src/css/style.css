@@ -1,13 +1,25 @@
 /* by lzb */
 body {
-    background: #f5f5f5;
+  background: #f5f5f5;
 }
 
 blockquote {
-    box-sizing: border-box;
-    padding: 1em 2em;
-    margin: 0;
-    background: #cdcdcd;
-    border-radius: 8px;
-    border-left: 2px solid green;
+  box-sizing: border-box;
+  padding: 1em 2em;
+  margin: 0;
+  background-color: #cdcdcd;
+  border-radius: 8px;
+  border-left: 2px solid green;
+}
+
+blockquote:first-child {
+  background-image: url(../assets/float.jpg);
+}
+
+blockquote:last-child {
+  background-image: url(../assets/peanut.jpg);
+}
+
+.pure-button::placeholder {
+  color: gray;
 }
